@@ -1,11 +1,12 @@
 # ehcache-rest-server
 
-An implementation that makes Ehcache Operations accessible via REST/JSON
+A REST server that makes common Ehcache Operations accessible via standard REST/JSON.
+
 Note: Currently adapted/modernized from former ehcache-server version -- http://www.ehcache.org/documentation/2.7/modules/cache-server.html.
 
-Leverages Spring-Boot, JAX-RS (Jersey2), SwaggerUI and provides Docker capability for ease of testing.
+Current Ehcache version: 2.10.4
 
-(work in progress still...)
+For info: Leverages Spring-Boot, JAX-RS (Jersey2), SwaggerUI and provides Docker capability for ease of testing.
 
 ## Running ehcache-rest-server locally
 ```

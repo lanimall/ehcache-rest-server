@@ -31,7 +31,7 @@
 
     <!-- Dependencies -->
     <tomcat.version>8.5.14</tomcat.version>
-    <ehcache.version>2.7.6</ehcache.version>
+    <ehcache.version>2.10.4</ehcache.version>
     <swagger.version>1.5.8</swagger.version>
 
     <!-- Test Dependencies -->
