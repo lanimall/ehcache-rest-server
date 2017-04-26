@@ -24,10 +24,4 @@ NOTE: With the built-in ehcache configuration, there's only 1 cache defined ("st
 
 ## Running ehcache-rest-server with Docker
 
-TBD.
-
-```
-	git clone https://github.com/lanimall/ehcache-rest-server.git
-	cd ehcache-rest-server/docker
-	mvn spring-boot:run
-```
+TBD...
