@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <!-- Your own application should inherit from spring-boot-starter-parent -->
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>1.5.3.RELEASE</version>
+  </parent>
+  <artifactId>ehcache-rest-server</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>Ehcache Rest Server</name>
+  <description>Ehcache Rest Server</description>
+  <url>http://ehcache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java.version>1.8</java.version>
+    <start-class>net.sf.ehcache.server.EhcacheRestServerApp</start-class>
+    <packaging.type>jar</packaging.type>
+    <docker.image.prefix>lanimall</docker.image.prefix>
+    <push.image>false</push.image>
+
+    <!-- Plugins -->
+    <maven-clean-plugin.version>2.5</maven-clean-plugin.version>
+    <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
+    <docker-maven-plugin-spotify.version>0.4.10</docker-maven-plugin-spotify.version>
+
+    <!-- Dependencies -->
+    <tomcat.version>8.5.14</tomcat.version>
+    <ehcache.version>2.7.6</ehcache.version>
+    <swagger.version>1.5.8</swagger.version>
+
+    <!-- Test Dependencies -->
+    <rest-assured.version>2.9.0</rest-assured.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jersey</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+
+    <!-- Spring -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+    </dependency>
+
+    <!-- Ehcache -->
+    <dependency>
+      <groupId>net.sf.ehcache</groupId>
+      <artifactId>ehcache</artifactId>
+      <version>${ehcache.version}</version>
+    </dependency>
+
+    <!-- Swagger -->
+    <dependency>
+      <groupId>io.swagger</groupId>
+      <artifactId>swagger-jersey2-jaxrs</artifactId>
+      <version>${swagger.version}</version>
+    </dependency>
+
+    <!-- Provided -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-tomcat</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Test -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.jayway.restassured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>${rest-assured.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>ehcache-rest-server</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin.version}</version>
+        <configuration>
+          <compilerArguments>
+            <source>${java.version}</source>
+            <target>${java.version}</target>
+          </compilerArguments>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.spotify</groupId>
+        <artifactId>docker-maven-plugin</artifactId>
+        <version>${docker-maven-plugin-spotify.version}</version>
+        <!-- Include:
+          export DOCKER_HOST=tcp://docker:4243
+          in host executing mvn docker:build
+        -->
+        <configuration>
+          <!-- One or the other -->
+          <!-- First add server entry in settings.xml -->
+          <serverId>docker-hub</serverId>
+          <!-- Uses ~/.docker/config.json created once logged in using "docker login" command -->
+          <!-- <useConfigFile>true</useConfigFile> -->
+
+          <imageName>${docker.image.prefix}/${project.artifactId}:${project.version}</imageName>
+          <pushImage>${push.image}</pushImage>
+          <forceTags>true</forceTags>
+          <imageTags>
+            <imageTag>${project.version}</imageTag>
+            <imageTag>latest</imageTag>
+          </imageTags>
+          <dockerDirectory>src/main/docker</dockerDirectory>
+          <resources>
+            <resource>
+              <targetPath>/</targetPath>
+              <directory>${project.build.directory}</directory>
+              <include>${project.build.finalName}.jar</include>
+            </resource>
+          </resources>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <repositories>
+    <repository>
+      <id>spring-releases</id>
+      <url>https://repo.spring.io/libs-release</url>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>spring-releases</id>
+      <url>https://repo.spring.io/libs-release</url>
+    </pluginRepository>
+  </pluginRepositories>
+</project>
