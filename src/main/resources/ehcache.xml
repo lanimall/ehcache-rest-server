@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         name="jaxrs-cxf-cache"
          xsi:noNamespaceSchemaLocation="xsds/ehcache.xsd">
 
   <diskStore path="java.io.tmpdir"/>
-
-  <terracottaConfig url="${terracotta.config.url}" rejoin="true"/>
 
   <defaultCache
     maxEntriesLocalHeap="0"
@@ -15,14 +12,23 @@
     timeToLiveSeconds="1200">
   </defaultCache>
 
-  <!-- maxEntriesInCache="10000" -->
-  <cache name="stringCache"
-         maxEntriesLocalHeap="10000"
+  <cache name="smallExpiryCache"
+         maxEntriesLocalHeap="1000"
+         timeToLiveSeconds="10">
+  </cache>
+
+  <cache name="smallCache"
+         maxEntriesLocalHeap="10"
          timeToLiveSeconds="120">
-    <!--<terracotta>-->
-    <!--<nonstop immediateTimeout="true" timeoutMillis="30000">-->
-    <!--<timeoutBehavior type="exception" />-->
-    <!--</nonstop>-->
-    <!--</terracotta>-->
+  </cache>
+
+  <cache name="largeCache"
+         maxEntriesLocalHeap="100000"
+         timeToLiveSeconds="120">
+  </cache>
+
+  <cache name="eternalCache"
+         maxEntriesLocalHeap="10000"
+         timeToLiveSeconds="0">
   </cache>
 </ehcache>
