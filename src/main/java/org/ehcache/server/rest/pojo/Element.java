@@ -1,4 +1,4 @@
-package net.sf.ehcache.server.pojo;
+package org.ehcache.server.rest.pojo;
 
 import net.sf.ehcache.CacheException;
 import net.sf.ehcache.MimeTypeByteArray;

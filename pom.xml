@@ -31,7 +31,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
-    <start-class>net.sf.ehcache.server.EhcacheRestServerApp</start-class>
+    <start-class>org.ehcache.server.rest.EhcacheRestServerApp</start-class>
     <packaging.type>jar</packaging.type>
     <docker.image.prefix>lanimall</docker.image.prefix>
     <push.image>false</push.image>

@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package net.sf.ehcache.server;
+package org.ehcache.server.rest;
 
 import net.sf.ehcache.CacheManager;
 import org.springframework.beans.factory.FactoryBean;

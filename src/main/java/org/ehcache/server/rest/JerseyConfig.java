@@ -1,11 +1,11 @@
-package net.sf.ehcache.server;
+package org.ehcache.server.rest;
 
 import io.swagger.jaxrs.config.BeanConfig;
 import io.swagger.jaxrs.listing.ApiListingResource;
 import io.swagger.jaxrs.listing.SwaggerSerializers;
-import net.sf.ehcache.server.endpoints.CacheManagerResource;
-import net.sf.ehcache.server.endpoints.CacheResource;
-import net.sf.ehcache.server.endpoints.ElementResource;
+import org.ehcache.server.rest.endpoints.CacheManagerResource;
+import org.ehcache.server.rest.endpoints.CacheResource;
+import org.ehcache.server.rest.endpoints.ElementResource;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -44,7 +44,7 @@ public class JerseyConfig extends ResourceConfig {
     beanConfig.setVersion("v1.0.0");
     beanConfig.setSchemes(new String[]{"http", "https"});
     beanConfig.setBasePath(apiPath);
-    beanConfig.setResourcePackage("net.sf.ehcache.server.endpoints");
+    beanConfig.setResourcePackage("org.ehcache.server.rest.endpoints");
     beanConfig.setPrettyPrint(true);
     beanConfig.setScan(true);
   }

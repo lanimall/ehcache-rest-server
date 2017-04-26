@@ -1,4 +1,4 @@
-package net.sf.ehcache.server.pojo;
+package org.ehcache.server.rest.pojo;
 
 import java.util.List;
 

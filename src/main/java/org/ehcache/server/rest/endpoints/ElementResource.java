@@ -1,8 +1,8 @@
-package net.sf.ehcache.server.endpoints;
+package org.ehcache.server.rest.endpoints;
 
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.MimeTypeByteArray;
-import net.sf.ehcache.server.pojo.Element;
+import org.ehcache.server.rest.pojo.Element;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

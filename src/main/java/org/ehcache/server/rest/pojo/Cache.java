@@ -1,4 +1,4 @@
-package net.sf.ehcache.server.pojo;
+package org.ehcache.server.rest.pojo;
 
 import net.sf.ehcache.Ehcache;
 import net.sf.ehcache.config.CacheConfiguration;
