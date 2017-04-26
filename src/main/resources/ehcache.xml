@@ -18,7 +18,7 @@
   <!-- maxEntriesInCache="10000" -->
   <cache name="stringCache"
          maxEntriesLocalHeap="10000"
-         timeToLiveSeconds="10">
+         timeToLiveSeconds="120">
     <!--<terracotta>-->
     <!--<nonstop immediateTimeout="true" timeoutMillis="30000">-->
     <!--<timeoutBehavior type="exception" />-->
