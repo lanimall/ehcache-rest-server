@@ -8,12 +8,24 @@
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>1.5.3.RELEASE</version>
   </parent>
-  <artifactId>ehcache-rest-server</artifactId>
+  <artifactId>ehcache2x-rest-server</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>Ehcache Rest Server</name>
-  <description>Ehcache Rest Server</description>
+  <name>Ehcache 2x Rest Server</name>
+  <description>Rest Server for Ehcache 2</description>
   <url>http://ehcache.org</url>
+
+  <developers>
+    <developer>
+      <id>fsanglie</id>
+      <name>Fabien Sanglier</name>
+      <email>fsanglie@terracottatech.com</email>
+      <url>http://www.terracotta.org</url>
+      <organization>Terracotta, Inc.</organization>
+      <organizationUrl>http://www.terracotta.org</organizationUrl>
+      <timezone>-6</timezone>
+    </developer>
+  </developers>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -27,7 +39,7 @@
     <!-- Plugins -->
     <maven-clean-plugin.version>2.5</maven-clean-plugin.version>
     <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
-    <docker-maven-plugin-spotify.version>0.4.10</docker-maven-plugin-spotify.version>
+    <docker-maven-plugin-spotify.version>0.4.13</docker-maven-plugin-spotify.version>
 
     <!-- Dependencies -->
     <tomcat.version>8.5.14</tomcat.version>
@@ -95,7 +107,7 @@
   </dependencies>
 
   <build>
-    <finalName>ehcache-rest-server</finalName>
+    <finalName>ehcache2x-rest-server</finalName>
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>

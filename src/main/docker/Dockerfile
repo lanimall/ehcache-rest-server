@@ -14,17 +14,17 @@ RUN \
   useradd -ms /bin/bash $USER_NAME && \
   mkdir -p $APP_HOME
 
-ADD ehcache-rest-server.jar ${APP_HOME}/ehcache-rest-server.jar
+ADD ehcache2x-rest-server.jar ${APP_HOME}/ehcache2x-rest-server.jar
 
 RUN \
-  chown $USER_NAME $APP_HOME/ehcache-rest-server.jar && \
-  bash -c 'touch ${APP_HOME}/ehcache-rest-server.jar'
+  chown $USER_NAME $APP_HOME/ehcache2x-rest-server.jar && \
+  bash -c 'touch ${APP_HOME}/ehcache2x-rest-server.jar'
 
 ENV JAVA_TOOL_OPTIONS "-Xms128M -Xmx128M -Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom"
 
 USER $USER_NAME
 WORKDIR $APP_HOME
-ENTRYPOINT ["java", "-jar", "ehcache-rest-server.jar"]
+ENTRYPOINT ["java", "-jar", "ehcache2x-rest-server.jar"]
 
 # Run as:
-# docker run -idt -p 8701:8701 -e appPort=8701 lanimall/ehcache-rest-server:latest
+# docker run -idt -p 8701:8701 -e appPort=8701 lanimall/ehcache2x-rest-server:latest
