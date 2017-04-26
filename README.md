@@ -32,7 +32,7 @@ For example, if you have a custom "ehcache-rest-server.xml" file in your applica
 ```
 	git clone https://github.com/lanimall/ehcache-rest-server.git
 	cd ehcache-rest-server
-  mvn spring-boot:run -Drun.jvmArguments="-Dehcache.config.path=$HOME/ehcache-rest-server.xml"
+	mvn spring-boot:run -Drun.jvmArguments="-Dehcache.config.path=file://$HOME/ehcache-rest-server.xml"
 ```
 
 ## Running ehcache-rest-server with Docker
