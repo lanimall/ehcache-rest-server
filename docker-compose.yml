@@ -1,0 +1,13 @@
+version: '3'
+services:
+  ehcache-rest-server:
+    environment:
+      - appPort=8701
+    build:
+      context: ./src/main/docker
+      dockerfile: Dockerfile
+      args:
+        JAR_PATH : ./target
+    image: ehcache/ehcache-rest-server:2.0
+    ports:
+      - "8701:8701"
