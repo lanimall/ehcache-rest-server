@@ -107,7 +107,6 @@
   </dependencies>
 
   <build>
-    <finalName>ehcache2x-rest-server</finalName>
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>
