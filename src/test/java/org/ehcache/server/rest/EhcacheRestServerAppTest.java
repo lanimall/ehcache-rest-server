@@ -32,7 +32,7 @@ public class EhcacheRestServerAppTest
     @Test
     public void testAppMain()
     {
-        EhcacheRestServerApp.main(null);
+        EhcacheRestServerApp.main(new String[]{""});
         try {
             assertEquals("test", "test");
         } catch (AssertionError e) {
