@@ -6,7 +6,7 @@
     <!-- Your own application should inherit from spring-boot-starter-parent -->
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.5.3.RELEASE</version>
+    <version>1.5.10.RELEASE</version>
   </parent>
   <artifactId>ehcache2x-rest-server</artifactId>
   <version>1.0.0-SNAPSHOT</version>
