@@ -89,8 +89,11 @@ public class CacheManagerResource {
 
     for (String cacheName : cacheNames) {
       Ehcache ehcache = MANAGER.getCache(cacheName);
-      URI cacheUri = uriInfo.getAbsolutePathBuilder().path(cacheName).build().normalize();
-      Cache cache = new Cache(cacheName, cacheUri.toString(), ehcache.toString(), ehcache.getCacheConfiguration());
+      URI cacheUri = null;
+      if(null != uriInfo)
+        cacheUri = uriInfo.getAbsolutePathBuilder().path(cacheName).build().normalize();
+
+      Cache cache = new Cache(cacheName, (null != cacheUri)?cacheUri.toString():"", ehcache.toString(), ehcache.getCacheConfiguration());
       cacheList.add(cache);
     }
 

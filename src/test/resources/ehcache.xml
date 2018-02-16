@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="xsds/ehcache.xsd">
+
+  <diskStore path="java.io.tmpdir"/>
+
+  <defaultCache
+    maxEntriesLocalHeap="0"
+    eternal="false"
+    timeToIdleSeconds="1200"
+    timeToLiveSeconds="1200">
+  </defaultCache>
+
+  <cache name="smallTest1"
+         maxEntriesLocalHeap="1000"
+         timeToLiveSeconds="10">
+  </cache>
+
+  <cache name="smallTest2"
+         maxEntriesLocalHeap="10"
+         timeToLiveSeconds="120">
+  </cache>
+
+  <cache name="smallTest3"
+         maxEntriesLocalHeap="100000"
+         timeToLiveSeconds="120">
+  </cache>
+
+  <cache name="smallTest4"
+         maxEntriesLocalHeap="10000"
+         timeToLiveSeconds="0">
+  </cache>
+</ehcache>
